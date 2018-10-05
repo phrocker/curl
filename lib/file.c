@@ -448,9 +448,9 @@ static CURLcode file_do(struct connectdata *conn, bool *done)
     if(result)
       return result;
     /* set the file size to make it available post transfer */
+    Curl_pgrsSetDownloadSize(data, expected_size);
     if(data->set.opt_no_body)
       return result;
-    Curl_pgrsSetDownloadSize(data, expected_size);
   }
 
   /* Check whether file range has been specified */
