@@ -285,8 +285,9 @@ endif()
 check_function_exists(gethostname HAVE_GETHOSTNAME)
 
 if(WIN32)
-  check_library_exists_concat("ws2_32" _getch        HAVE_LIBWS2_32)
-  check_library_exists_concat("winmm"  _getch        HAVE_LIBWINMM)
+  set(HAVE_LIBWS2_32 1)
+  #check_library_exists_concat("ws2_32" _getch        HAVE_LIBWS2_32)
+  # check_library_exists_concat("winmm"  _getch        HAVE_LIBWINMM)
   list(APPEND CURL_LIBS "advapi32")
 endif()
 
